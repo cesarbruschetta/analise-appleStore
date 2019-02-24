@@ -71,7 +71,7 @@ def get_twitter_citations(app_name):
 
 
 def build_report_store_data(data, r_sorted=True):
-    """ """
+    """ build and proccess report to data from AppleStore  """
 
     filter_category = ["Book", "Music"]
     _data = list(filter(lambda d: d["prime_genre"] in filter_category, data))
@@ -80,9 +80,9 @@ def build_report_store_data(data, r_sorted=True):
         _data = sorted(_data, key=lambda k: float(k["rating_count_tot"]), reverse=True)
 
     for app in _data:
-        # citations = get_twitter_citations(app["track_name"])
-        import random
-        citations = random.randint(1, 100000)
+        citations = get_twitter_citations(app["track_name"])
+        # import random
+        # citations = random.randint(1, 100000)
         app["n_citacoes"] = citations
 
     _data = sorted(_data, key=lambda k: float(k["n_citacoes"]), reverse=True)

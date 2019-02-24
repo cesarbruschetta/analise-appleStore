@@ -69,7 +69,7 @@ def insert_report_data(conn, data):
 
 
 def select_report_data(conn):
-    """  """
+    """ select report data to DB  """
 
     cur = conn.cursor()
     cur.execute("SELECT * FROM report_analyze")

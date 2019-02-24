@@ -60,18 +60,15 @@ def main_api(**settings):
     """ This function returns a Pyramid WSGI application.
     """
     config = Configurator(settings=settings)
-    config.add_request_method(
-        lambda r: settings['connection'],
-        'dbsession',
-        reify=True
-    )
-    
-    config.scan('analyze_store_data.views')
+    config.add_request_method(lambda r: settings["connection"], "dbsession", reify=True)
+
+    config.scan("analyze_store_data.views")
     app = config.make_wsgi_app()
-    
+
     print("Init server API in port 8080")
-    server = make_server('0.0.0.0', 8080, app)
+    server = make_server("0.0.0.0", 8080, app)
     server.serve_forever()
+
 
 if __name__ == "__main__":
     main()
