@@ -1,19 +1,11 @@
 # Analise de dados do Apple Store
 
+Uma empresa que fornece aplicativos de música e livros, precisa acompanhar regularmente a evolução das métricas de aplicativos de música disponíveis na Apple Store. 
+Hoje, para que esse acompanhamento seja feito, um profissional precisa diariamente realizar a coleta desses dados atualizados, realizar a transformação desses dados. 
+Atualmente a empresa não dispõe de nenhuma ferramenta que faça esse trabalho de forma automatizada. 
+Além disso, esse profissional está envolvido em diversas outras atividades, fazendo com que, muitas vezes, esses relatórios deixem de ser enviados.
 
-
-Uma empresa que fornece aplicativos de música e livros, precisa acompanhar 
-regularmente a evolução das métricas de aplicativos de música disponíveis na Apple Store. 
-Hoje, para que esse acompanhamento seja feito, um profissional precisa
-diariamente realizar a coleta desses dados atualizados, realizar a transformação
-desses dados. 
-Atualmente a empresa não dispõe de nenhuma ferramenta que faça
-esse trabalho de forma automatizada. Além disso, esse profissional está envolvido em
-diversas outras atividades, fazendo com que, muitas vezes, esses relatórios deixem de
-ser enviados.
-
-Utilizando a linguagem Python, acesse o arquivo AppleStore.csv que terá os seguintes
-dados disponíveis:
+Utilizando a linguagem Python, acesse o arquivo AppleStore.csv que terá os seguintes dados disponíveis:
 
 ## Dados disponíveis 
 
@@ -31,12 +23,9 @@ dados disponíveis:
  * prime_genre = Gênero do App
 
 Para isso, é preciso extrair os dados relativos a Aplicações “Apps”, do gênero News. 
-Já para a Aplicação da categoria News, que tiver a maior quantidade de
-avaliações, utilizar a API dessa Aplicação para identificar quais são as 10 Aplicações
-do gênero Music e Book que possuem o maior número de citações.
+Já para a Aplicação da categoria News, que tiver a maior quantidade de avaliações, utilizar a API dessa Aplicação para identificar quais são as 10 Aplicações do gênero Music e Book que possuem o maior número de citações.
 
-Em seguida, será necessário armazenar esses dados em um arquivo CSV, com os
-campos: 
+Em seguida, será necessário armazenar esses dados em um arquivo CSV, com os campos: 
 
 * id
 * track_name
@@ -52,3 +41,35 @@ Por último, deverá acessar os dados e retornar um JSON com todas as informaç�
 
 Os dados relativos as Aplicações estão disponíveis no arquivo abaixo.
 * AppleStore.csv
+
+## Instalar o Ambiente Local
+
+### Criar o virtualenv
+
+```bash
+$ virtualenv -p /usr/bin/python3.6 analyze_store_data
+```
+
+### Clonar o código fonte da aplicação
+
+```bash
+$ cd analyze_store_data
+$ git clone https://github.com/cesarbruschetta/analise-appleStore app
+```
+
+## Instalar as dependências do python
+
+```bash
+$ cd app
+$ ../bin/python setup.py develop
+```
+
+## Executar o processamento e servidor da API
+
+```bash
+$ ../bin/analyze_store_data 
+```
+
+## Acessar no seu navegador a URL
+
+[http://127.0.0.1:8080/](http://127.0.0.1:8080/)
